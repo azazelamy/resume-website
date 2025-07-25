@@ -15,10 +15,19 @@ export default function Section({ title, children, className = '' }: SectionProp
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`neumorphic section ${className}`}
+      className={`neumorphic p-8 mb-8 relative overflow-hidden ${className}`}
     >
-      <h2 className="section-title">{title}</h2>
-      {children}
+      <motion.h2 
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="section-title"
+      >
+        {title}
+      </motion.h2>
+      <div className="relative z-10">
+        {children}
+      </div>
     </motion.section>
   );
 }
